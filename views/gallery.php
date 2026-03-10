@@ -9,8 +9,8 @@ ob_start();
     <div class="container">
         <div class="gallery-header-inner">
             <div class="gallery-header-content">
-                <h1 class="gallery-title">Gallery Collection</h1>
-                <p class="gallery-subtitle">Explore stunning artworks from our talented artists - view only, not available for purchase</p>
+                <h1 class="gallery-title">The Art Gallery</h1>
+                <p class="gallery-subtitle">Discover extraordinary artworks curated from our community of visionary artists - where every piece tells a unique story and sparks imagination</p>
             </div>
         </div>
     </div>

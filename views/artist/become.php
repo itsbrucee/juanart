@@ -14,9 +14,9 @@
                 <h3>Application Requirements</h3>
             </div>
             <ul class="requirements-list">
-                <li><i data-feather="check-circle"></i> Valid government-issued ID (URL to uploaded document)</li>
+                <li><i data-feather="check-circle"></i> Valid government-issued ID (Upload photo)</li>
                 <li><i data-feather="check-circle"></i> Brief bio describing your artistic background</li>
-                <li><i data-feather="check-circle"></i> At least 7 portfolio artwork URLs</li>
+                <li><i data-feather="check-circle"></i> At least 7 portfolio artwork images</li>
                 <li><i data-feather="check-circle"></i> Description of your experience and art style</li>
             </ul>
             <p class="requirements-note">Your application will be reviewed by our admin team. You'll be notified once your application has been processed.</p>
@@ -25,7 +25,7 @@
         <!-- Application Form -->
         <div class="form-card">
             <h2 class="form-title">Submit Your Application</h2>
-            <form method="post" class="become-form">
+            <form method="post" class="become-form" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="kyc_submit">
                 
                 <div class="form-row">
@@ -46,27 +46,31 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="valid_id_url">Valid ID Document URL</label>
-                        <p class="form-help">Link to your uploaded government-issued ID</p>
-                        <div class="input-with-icon">
-                            <i data-feather="link"></i>
-                            <input type="url" name="valid_id_url" id="valid_id_url" class="input" required placeholder="https://your-storage.com/id-document.jpg">
+                        <label for="valid_id_image">Valid ID Document</label>
+                        <p class="form-help">Upload a photo of your government-issued ID</p>
+                        <div class="file-upload-wrapper">
+                            <input type="file" name="valid_id_image" id="valid_id_image" class="file-input" accept=".jpg,.jpeg,.png,.webp" required>
+                            <label for="valid_id_image" class="file-upload-label">
+                                <i data-feather="upload"></i>
+                                <span>Upload Photo</span>
+                            </label>
+                            <p class="file-help">Accepted formats: JPG, PNG, WEBP</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="portfolio_urls">Portfolio Artwork URLs</label>
-                        <p class="form-help">Provide at least 7 URLs to your best artworks (one per line)</p>
-                        <textarea name="portfolio_urls" id="portfolio_urls" class="input" rows="8" required placeholder="https://example.com/artwork1.jpg
-https://example.com/artwork2.jpg
-https://example.com/artwork3.jpg
-https://example.com/artwork4.jpg
-https://example.com/artwork5.jpg
-https://example.com/artwork6.jpg
-https://example.com/artwork7.jpg"></textarea>
-                        <span class="input-hint">Minimum 7 URLs required</span>
+                        <label for="portfolio_images">Portfolio Artwork Images</label>
+                        <p class="form-help">Upload at least 7 images of your best artworks</p>
+                        <div class="file-upload-wrapper">
+                            <input type="file" name="portfolio_images[]" id="portfolio_images" class="file-input" accept=".jpg,.jpeg,.png,.webp" multiple required>
+                            <label for="portfolio_images" class="file-upload-label">
+                                <i data-feather="upload"></i>
+                                <span>Upload Images</span>
+                            </label>
+                            <p class="file-help">Accepted formats: JPG, PNG, WEBP. Select multiple files (minimum 7).</p>
+                        </div>
                     </div>
                 </div>
 
@@ -236,29 +240,57 @@ https://example.com/artwork7.jpg"></textarea>
     margin-bottom: var(--spacing-sm);
 }
 
-.input-with-icon {
+/* File Upload Styles */
+.file-upload-wrapper {
     position: relative;
 }
 
-.input-with-icon i {
+.file-input {
     position: absolute;
-    left: var(--spacing-md);
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-    width: 18px;
-    height: 18px;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
 }
 
-.input-with-icon .input {
-    padding-left: calc(var(--spacing-md) * 2 + 18px);
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
 }
 
-.input-hint {
-    display: block;
+.file-upload-label:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: var(--accent-primary-light-2);
+}
+
+.file-upload-label i {
+    width: 20px;
+    height: 20px;
+}
+
+.file-input:focus + .file-upload-label {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.file-help {
     font-size: var(--font-size-xs);
     color: var(--text-muted);
-    margin-top: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0;
 }
 
 .form-actions {

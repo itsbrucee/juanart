@@ -42,7 +42,9 @@ $loggedIn = Auth::check();
     <header class="site-header">
         <div class="container">
             <div class="header-inner">
-                <a href="?page=dashboard" class="logo">JuanArt</a>
+                <a href="?page=dashboard" class="logo">
+                    <img src="assets/images/juanart-header.png" alt="JuanArt">
+                </a>
                 
                 <nav class="nav-main">
                     <div class="nav-menu">
@@ -115,7 +117,7 @@ $loggedIn = Auth::check();
                                 </a>
                                 <a href="?page=my-commissions" class="user-dropdown-item">
                                     <i data-feather="briefcase"></i>
-                                    <span>My Commissions</span>
+                                    <span>Commissions</span>
                                 </a>
                                 <?php if ($isArtist): ?>
                                 <a href="?page=artist/dashboard" class="user-dropdown-item">

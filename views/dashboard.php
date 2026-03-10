@@ -19,7 +19,7 @@ ob_start();
                 </div>
             </div>
                 <div class="hero-image">
-                <img src="/assets/images/juanartimage.png" alt="Featured Artwork">
+                <img src="assets/images/juanartimage.png" alt="Featured Artwork">
             </div>
         </div>
     </div>
@@ -200,7 +200,7 @@ ob_start();
     <div class="container">
         <div class="split-banners">
             <div class="split-banner">
-                <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&h=300&fit=crop" alt="Commission an Artist">
+                <img src="assets/images/commissions.jpg" alt="Commission an Artist">
                 <div class="split-banner-content">
                     <span class="split-banner-label">Custom Art</span>
                     <h3 class="split-banner-title">Commission an Artist</h3>
@@ -209,7 +209,7 @@ ob_start();
                 </div>
             </div>
             <div class="split-banner">
-                <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=600&h=300&fit=crop" alt="Become a Seller">
+                <img src="assets/images/sell.jpg" alt="Become a Seller">
                 <div class="split-banner-content">
                     <span class="split-banner-label">Sell Your Art</span>
                     <h3 class="split-banner-title">Become a Seller</h3>
